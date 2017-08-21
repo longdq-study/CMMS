@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+    
+</div>
+
+<div id="demo">
+
+</div>
+
+<script>
+    Ext.onReady(function () { alert('hello') });
+
+    Ext.define('User', {
+        extend: 'Ext.data.Model',
+        fields: ['name', 'email', 'phone']
+    });
+
+    var userStore = Ext.create('Ext.data.Store', {
+        model: 'User',
+        data: [
+            { name: 'Lisa', email: 'lisa@simpsons.com', phone: '555-111-1224' },
+            { name: 'Bart', email: 'bart@simpsons.com', phone: '555-222-1234' },
+            { name: 'Homer', email: 'homer@simpsons.com', phone: '555-222-1244' },
+            { name: 'Marge', email: 'marge@simpsons.com', phone: '555-222-1254' }
+        ]
+    });
+
+    Ext.create('Ext.grid.Panel', {
+        renderTo: 'demo',
+        store: userStore,
+        width: 400,
+        height: 200,
+        title: 'Application Users',
+        columns: [
+            {
+                text: 'Name',
+                width: 100,
+                sortable: false,
+                hideable: false,
+                dataIndex: 'name'
+            },
+            {
+                text: 'Email Address',
+                width: 150,
+                dataIndex: 'email',
+                hidden: true
+            },
+            {
+                text: 'Phone Number',
+                flex: 1,
+                dataIndex: 'phone'
+            }
+        ]
+    });
+
+
+</script>
